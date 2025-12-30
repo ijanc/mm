@@ -5,10 +5,6 @@ use clap::{Parser, Subcommand};
 #[command(version = "0.1.0")]
 #[command(about = "my manager", long_about = None)]
 struct Cli {
-    // /// Turn debugging information on
-    // #[arg(short, long, action = clap::ArgAction::Count)]
-    // debug: u8,
-
     #[command(subcommand)]
     command: Commands,
 }
@@ -74,13 +70,6 @@ enum TechnologyCommands { }
 
 fn main() {
     let cli = Cli::parse();
-
-    // match cli.debug {
-    //     0 => println!("Debug mode is off"),
-    //     1 => println!("Debug mode is kind of on"),
-    //     2 => println!("Debug mode is on"),
-    //     _ => println!("Don't be crazy"),
-    // }
 
     match &cli.command {
         Commands::People { cmd } => match cmd {
